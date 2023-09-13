@@ -19,16 +19,21 @@ class notesView {
     }
 
     displayNotes() {
+        
+        const notesToRemove = document.querySelectorAll('.note');
+        notesToRemove.forEach(note => {
+            note.remove();
+        });
+        
         const notes = this.model.getNotes();
-
         notes.forEach(note => {
             const noteEl = document.createElement('div');
             noteEl.textContent = note;
             noteEl.className = 'note';
-            // noteEl.innerText = this.inputEl.value;
             this.mainContainerEl.append(noteEl);
-
         });
+
+        this.inputEl.value = '';
     }
 }
 

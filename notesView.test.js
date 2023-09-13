@@ -22,7 +22,7 @@ describe('Notes view', () => {
         expect(document.querySelectorAll('div.note').length).toEqual(2);
     });
 
-    it('adds and displays two notes', () => {
+    it('adds and displays a note', () => {
         const model = new notesModel()
         const view = new notesView(model);
 
@@ -34,6 +34,19 @@ describe('Notes view', () => {
 
         expect(document.querySelectorAll('div.note').length).toEqual(1);
         expect(document.querySelectorAll('div.note')[0].textContent).toEqual("One note");
+    });
+
+    it('adds and does not displays repeated notes', () => {
+        const model = new notesModel()
+        const view = new notesView(model);
+
+        model.addNotes('One note');
+        model.addNotes('Two notes');
+
+        view.displayNotes();
+        view.displayNotes();
+
+        expect(document.querySelectorAll('div.note').length).toEqual(2);
     });
 
 });
