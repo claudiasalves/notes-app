@@ -22,4 +22,18 @@ describe('Notes view', () => {
         expect(document.querySelectorAll('div.note').length).toEqual(2);
     });
 
+    it('adds and displays two notes', () => {
+        const model = new notesModel()
+        const view = new notesView(model);
+
+        const buttonEl = document.querySelector('#add-note-button');
+        const inputEl = document.querySelector('#note-input');
+
+        inputEl.value = "One note";
+        buttonEl.click();
+
+        expect(document.querySelectorAll('div.note').length).toEqual(1);
+        expect(document.querySelectorAll('div.note')[0].textContent).toEqual("One note");
+    });
+
 });
