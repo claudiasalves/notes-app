@@ -7,6 +7,10 @@ class notesModel {
         this.notes.push(note);
     }
 
+    setNotes(notesApi){
+        this.notes = notesApi;
+    }
+
     getNotes() {
         return this.notes;
     }
