@@ -1,11 +1,14 @@
+const notesView = require('./notesView');
+
 class notesClient {
-    loadNotes(callback) {
+    loadNotes(callback, errorCallback) {
         fetch('http://localhost:3000/notes')
             .then(response => response.json())
             .then(data => {
-                callback(data)
-        });
-    }
+                callback(data)})
+            .catch(error => {
+                errorCallback(error)});
+        };
 
     async createNote(data) {
         try {
@@ -14,13 +17,14 @@ class notesClient {
                 headers: {
                 "Content-Type": "application/json",
                 },
-                body: JSON.stringify({content: data}),
+                body: JSON.stringify({content: data})
             });
         
             const result = await response.json();
             console.log("Success:", result);
         } catch (error) {
-            console.error("Error:", error);
+            return error;
+            
         }
     }
 }
