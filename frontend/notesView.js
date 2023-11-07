@@ -19,7 +19,10 @@ class notesView {
                     this.displayNotes()
                 }
             });
-    })
+        })
+
+        this.buttonEl2 = document.querySelector('#delete-note-button');
+        this.buttonEl2.addEventListener('click', () => this.deleteAllNotes())
     }
 
     addNewNote(newNote) {
@@ -56,6 +59,14 @@ class notesView {
         const errorNotes= document.createElement('div');
         errorNotes.textContent = "Oops, something went wrong!"
         this.mainContainerEl.append(errorNotes);
+    }
+
+    deleteAllNotes() {
+        this.client.deleteNotes().then(() => {
+            this.displayNotesFromApi();
+        }).catch((error) => {
+            console.error('Error in deleteAllNotes:', error);
+        });
     }
 }
 

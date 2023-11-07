@@ -27,6 +27,17 @@ class notesClient {
             
         }
     }
+
+    async deleteNotes() {
+        try {
+            await fetch("http://localhost:3000/notes", {
+            method: "DELETE"
+            });   
+        } catch (error) {
+            console.error('Error in deleteNotes:', error);
+            return Promise.reject(error);
+        }
+    }   
 }
 
 module.exports = notesClient;
