@@ -25,8 +25,9 @@ class notesView {
         this.buttonEl2.addEventListener('click', () => this.deleteAllNotes())
     }
 
-    addNewNote(newNote) {
-        this.model.addNotes(newNote);
+    async addNewNote(newNote) {
+        const emojifiedNote = await this.client.replaceEmoji(newNote);
+        this.model.addNotes(emojifiedNote);
         this.displayNotes();
     }
 
