@@ -33,7 +33,6 @@ class notesView {
 
     displayNotesFromApi() {
         this.client.loadNotes((notes) => {
-            // this.client.createNote(notes);
             this.model.setNotes(notes);
             this.displayNotes();
         });
@@ -63,9 +62,11 @@ class notesView {
     }
 
     deleteAllNotes() {
-        this.client.deleteNotes().then(() => {
+        this.client.deleteNotes()
+        .then(() => {
             this.displayNotesFromApi();
-        }).catch((error) => {
+        })
+        .catch((error) => {
             console.error('Error in deleteAllNotes:', error);
         });
     }
