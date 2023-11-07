@@ -44,6 +44,21 @@
     transition: background-color 0.3s ease;
     }
 
+    #delete-note-button {
+      display: block;
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 10px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      }
+
     #add-note-button:hover {
     background-color: #0056b3;
     }
