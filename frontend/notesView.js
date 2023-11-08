@@ -11,13 +11,14 @@ class notesView {
         this.buttonEl = document.querySelector('#add-note-button');
         this.buttonEl.addEventListener('click', () => {
             const newNote = this.inputEl.value;
-            this.client.createNote(newNote).then((error) => {
+            this.client.createNote(newNote)
+                .then((error) => {
                     if(error) {
-                    this.displayError()
+                        this.displayError()
                     } else {
-                    this.addNewNote(newNote);
-                    this.displayNotes()
-                }
+                        this.addNewNote(newNote);
+                        this.displayNotes()
+                    }
             });
         })
 

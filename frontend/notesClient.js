@@ -20,7 +20,6 @@ class notesClient {
                 },
                 body: JSON.stringify({content: emojifiedData})
             });
-        
             const result = await response.json();
             // console.log("Success:", result);
         } catch (error) {
